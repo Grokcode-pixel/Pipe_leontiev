@@ -86,6 +86,34 @@ def test_parse_report_file_two_header_styles():
         pass
 
 
+def test_mass_balance_checked_like_D48():
+    rows = [dict(row(i), dm=0.2) for i in (1500, 2000, 2500)]
+    assert D.evaluate(rows)['ok'] is True
+    rows[1]['dm'] = 1.5                                   # баланс массы СВЗ вне допуска в одном отчёте
+    e = D.evaluate(rows)
+    assert e['ok'] is False and e['checks']['mass'] is False, e
+    assert any('Баланс массы' in r[0] for r in D.rows_table(e))
+
+
+def test_official_statistics_by_default():
+    # один выброс эффекта в плотном окне: официальное (max − min)/2 его видит, устойчивое (P95 − P5)/2 — нет
+    rows = dense_rows()
+    rows[50]['effect'] += 0.15
+    e = D.evaluate(rows)
+    assert e['statistics'] == 'официальные D-12a' and e['checks']['eff'] is False, e
+    assert e['robust_eff_amp'] < 0.05                     # для информации
+    assert D.evaluate(rows, robust=True)['checks']['eff'] is True   # только по решению автора
+
+
+def test_header_mismatch_is_an_error_not_silence():
+    bad = 'Iteration Time Step q-dzv\n10 1.0 1100.0\n'      # «Time Step» без кавычек разбился на 2 имени
+    try:
+        D.parse_report_file(bad, {'Q': 'q-dzv'})
+        raise AssertionError('ожидалась ошибка о несовпадении заголовка')
+    except ValueError:
+        pass
+
+
 if __name__ == '__main__':
     tests = [v for k, v in dict(globals()).items() if k.startswith('test_')]
     for t in tests:

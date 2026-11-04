@@ -85,6 +85,31 @@ def test_first_dp_between_anchors():
     assert K.first_dp(anchors[2], anchors) == 28.93
 
 
+def test_adverse_exponent_side_still_two_runs():
+    # неблагоприятная сторона (замечание второго ИИ): принятый n больше истинного
+    for n_true, n_assumed in ((0.5, 0.6), (0.55, 0.6), (0.45, 0.7), (0.5, 0.7)):
+        for f in (0.4, 0.7, 1.5, 2.2, 3.0):
+            g = law(40.0, n_true)
+            pts = [(40.0 * f, g(40.0 * f))]
+            dp2 = K.next_dp(pts, n=n_assumed)
+            assert K.bracket(pts + [(dp2, g(dp2))]) is not None, (n_true, n_assumed, f)
+
+
+def test_real_F01_numbers():
+    # факт 04.11: P1 14,75 кПа → G 0,10257; P2 7,38 кПа → G 0,07278; n ≈ 0,4955; Δp равного расхода ≈ 23,2 кПа
+    p1, p2 = (14.75, 0.10257), (7.38, 0.07278)
+    n = K.fit_exponent({'F01': [p1, p2]})['n']
+    assert abs(n - 0.4955) < 1e-3, n
+    dp_eq = K.dp_for_flow(p1[0], p1[1], GT, n)
+    assert abs(dp_eq - 23.2) < 0.1, dp_eq
+    g = lambda dp: p1[1] * (dp / p1[0]) ** n
+    assert K.bracket([p1, p2, (29.51, g(29.51))]) is not None        # точка v1 29,51 кПа даёт вилку — не менять
+    assert K.guard(29.51, g(29.51)) == []                             # m ≈ 0,89 — внутри Ω
+    assert K.bracket([p1, p2, (20.0, g(20.0))]) is None               # ошибочное «≈ 20 кПа» из первой версии вилки не даёт
+    dp3 = K.next_dp([p1, p2], n=n)
+    assert K.bracket([p1, p2, (dp3, g(dp3))]) is not None
+
+
 if __name__ == '__main__':
     tests = [v for k, v in dict(globals()).items() if k.startswith('test_')]
     for t in tests:
