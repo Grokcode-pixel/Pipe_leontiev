@@ -41,7 +41,9 @@
     nav.classList.toggle("is-solid", window.scrollY > 40);
     const hero = $("#hero");
     const book = $("#book").getBoundingClientRect();
-    fab.classList.toggle("is-on", window.scrollY > hero.offsetHeight * 0.8 && book.top > window.innerHeight);
+    const sr = $("#scrub").getBoundingClientRect();
+    const inScrub = sr.top < window.innerHeight && sr.bottom > 0;
+    fab.classList.toggle("is-on", window.scrollY > hero.offsetHeight * 0.8 && book.top > window.innerHeight && !inScrub);
   };
   burger.addEventListener("click", () => {
     const open = burger.getAttribute("aria-expanded") !== "true";
@@ -186,9 +188,16 @@
   const scrub = $("#scrub");
   const sc = $("#scrubCanvas");
   const scDraw = makeWipe(sc);
-  const phases = $$("#phases .phase");
+  const STEPS = [
+    ["Гранулы −78,5 °C", "Пистолет разгоняет сжатым воздухом гранулы сухого льда диаметром 1,5–3 мм."],
+    ["Термический шок", "Слой масла и нагара резко охлаждается, становится хрупким и трескается."],
+    ["Микроудар", "Гранула выбивает загрязнение из пор и стыков, не задевая металл, пластик и краску."],
+    ["Сублимация", "Лёд сразу переходит в газ и расширяется примерно в 800 раз, отрывая остатки грязи. Ни капли влаги."],
+  ];
   const hudClean = $("#hudClean");
-  const hudBar = $("#hudBar");
+  const segs = $$("#storyBar i");
+  const stepBox = $(".story__text");
+  let curStep = 0;
   let scK = fitCanvas(sc), scP = 0, scOn = false, scRun = false;
   function scrubProgress() {
     const r = scrub.getBoundingClientRect();
@@ -196,11 +205,17 @@
     return Math.min(1, Math.max(0, -r.top / total));
   }
   function hud(p) {
-    const pct = Math.round(p * 100);
-    hudClean.textContent = `${pct}%`;
-    hudBar.style.width = `${pct}%`;
-    const ph = Math.min(phases.length - 1, Math.floor(p * phases.length * 0.999));
-    phases.forEach((el, i) => el.classList.toggle("is-on", i === ph));
+    hudClean.textContent = `${Math.round(p * 100)}%`;
+    const n = STEPS.length;
+    const step = Math.min(n - 1, Math.floor(p * n * 0.999));
+    segs.forEach((el, i) => el.style.setProperty("--f", Math.min(1, Math.max(0, p * n - i)).toFixed(3)));
+    if (step !== curStep) {
+      curStep = step;
+      $("#stepIdx").textContent = `Шаг ${step + 1} из ${n}`;
+      $("#stepTitle").textContent = STEPS[step][0];
+      $("#stepText").textContent = STEPS[step][1];
+      stepBox.animate?.([{ opacity: 0, transform: "translateY(10px)" }, { opacity: 1, transform: "none" }], { duration: reduce ? 1 : 500, easing: "ease-out" });
+    }
   }
   function scrubLoop(t) {
     const target = scrubProgress();
@@ -313,7 +328,7 @@
     zInfo.animate?.([{ opacity: 0, transform: "translateY(8px)" }, { opacity: 1, transform: "none" }], { duration: reduce ? 1 : 450, easing: "ease-out" });
     $("#zTitle").textContent = z.t;
     $("#zText").textContent = z.x;
-    $("#zChips").innerHTML = z.c.map((c) => `<li>${c}</li>`).join("");
+    $("#zChips").textContent = z.c.join(" · ");
     $("#zTime").textContent = z.time;
   });
 
@@ -331,7 +346,6 @@
     cBody.classList.add("is-swap");
     cImg.classList.add("is-swap");
     setTimeout(() => {
-      $("#cIdx").textContent = String(i + 1).padStart(2, "0");
       $("#cTitle").textContent = c.t;
       $("#cText").textContent = c.x;
       $("#cList").innerHTML = c.l.map((x) => `<li>${x}</li>`).join("");
@@ -346,12 +360,12 @@
   /* ---------- 3D-наклон карточек ---------- */
   if (!reduce && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
     $$(".tilt").forEach((card) => {
-      const inner = $(".tilt__in", card);
+      const inner = card;
       card.addEventListener("pointermove", (e) => {
         const r = card.getBoundingClientRect();
         const x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
-        inner.style.setProperty("--ry", `${(x - 0.5) * 18}deg`);
-        inner.style.setProperty("--rx", `${(0.5 - y) * 14}deg`);
+        inner.style.setProperty("--ry", `${(x - 0.5) * 10}deg`);
+        inner.style.setProperty("--rx", `${(0.5 - y) * 8}deg`);
         inner.style.setProperty("--gx", `${x * 100}%`);
         inner.style.setProperty("--gy", `${y * 100}%`);
       });
@@ -363,7 +377,7 @@
   }
 
   /* ---------- появление блоков ---------- */
-  const rvTargets = $$(".sec-head, .perk, .ba, .zones__grid, .tilt, .specs > div, .ctabs, .cpanel, .plan, .qa details, .book, .contacts > div");
+  const rvTargets = $$(".sec-head, .facts li, .ba, .zones__grid, .gitem, .specs > div, .ctabs, .cpanel, .plan, .qa details, .book, .contacts > div");
   if (!reduce && "IntersectionObserver" in window) {
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => {

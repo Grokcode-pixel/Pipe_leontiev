@@ -54,7 +54,7 @@
   <div class="hero__shade" aria-hidden="true"></div>
 
   <div class="wrap hero__in">
-    <p class="eyebrow"><span class="dot"></span>Ульяновск · криобластинг CO₂ · <span class="mono">−78,5 °C</span></p>
+    <p class="eyebrow"><span class="dot"></span>Ульяновск · криобластинг CO₂</p>
     <h1 class="hero__title" id="hero-title">
       <span class="line">Криочистка двигателя</span>
       <span class="line line--dim">сухим льдом.</span>
@@ -76,24 +76,17 @@
   </a>
 
   <ul class="hero__stats wrap" aria-label="Ключевые цифры">
-    <li><b class="mono">−78,5°</b><span>температура гранул</span></li>
-    <li><b class="mono">0 мл</b><span>воды на мотор</span></li>
-    <li><b class="mono">2 ч</b><span>средняя чистка</span></li>
-    <li><b class="mono">0 мкм</b><span>износа поверхности</span></li>
+    <li><b>−78,5°</b><span>температура гранул</span></li>
+    <li><b>0 мл</b><span>воды на мотор</span></li>
+    <li><b>2 ч</b><span>средняя чистка</span></li>
+    <li><b>0 мкм</b><span>износа поверхности</span></li>
   </ul>
 </section>
-
-<div class="ticker" aria-hidden="true">
-  <div class="ticker__track">
-    <span>Без воды</span><i>✱</i><span>Без химии</span><i>✱</i><span>Без разбора</span><i>✱</i><span>Безопасно для ЭБУ</span><i>✱</i><span>−78,5 °C</span><i>✱</i><span>Сублимация</span><i>✱</i>
-    <span>Без воды</span><i>✱</i><span>Без химии</span><i>✱</i><span>Без разбора</span><i>✱</i><span>Безопасно для ЭБУ</span><i>✱</i><span>−78,5 °C</span><i>✱</i><span>Сублимация</span><i>✱</i>
-  </div>
-</div>
 
 <!-- 02 TECH -->
 <section class="tech" id="tech" aria-labelledby="tech-title">
   <div class="wrap sec-head">
-    <p class="sec-num mono">02 / Технология</p>
+    <p class="sec-num">Технология</p>
     <h2 id="tech-title" class="h2">Лёд, который <span class="dim">не&nbsp;тает.</span></h2>
     <p class="sec-lead">Гранула CO₂ не превращается в воду. Она ударяет в нагар, замораживает его и испаряется прямо в воздух. На двигателе остаётся только чистый металл и пластик.</p>
   </div>
@@ -102,56 +95,33 @@
     <div class="scrub__sticky">
       <canvas class="scrub__canvas" id="scrubCanvas" aria-label="Анимация: струя сухого льда проходит по двигателю слева направо и снимает грязь" role="img"></canvas>
       <div class="scrub__vignette" aria-hidden="true"></div>
-      <div class="hud" aria-hidden="true">
-        <div class="hud__row"><span>Температура струи</span><b class="mono" id="hudTemp">−78,5 °C</b></div>
-        <div class="hud__row"><span>Очищено</span><b class="mono" id="hudClean">0%</b></div>
-        <div class="hud__row"><span>Вода</span><b class="mono">0,0 мл</b></div>
-        <div class="hud__track"><i id="hudBar"></i></div>
+      <div class="story">
+        <div class="story__pct" aria-hidden="true"><b id="hudClean">0%</b><span>очищено</span></div>
+        <div class="story__text" aria-live="polite">
+          <p class="story__step" id="stepIdx">Шаг 1 из 4</p>
+          <h3 id="stepTitle">Гранулы −78,5&nbsp;°C</h3>
+          <p id="stepText">Пистолет разгоняет сжатым воздухом гранулы сухого льда диаметром 1,5–3&nbsp;мм.</p>
+        </div>
+        <div class="story__bar" id="storyBar" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
       </div>
-      <ol class="phases" id="phases">
-        <li class="phase is-on">
-          <span class="phase__n mono">01</span>
-          <h3>Гранулы −78,5&nbsp;°C</h3>
-          <p>Пистолет разгоняет сжатым воздухом гранулы сухого льда диаметром 1,5–3&nbsp;мм.</p>
-        </li>
-        <li class="phase">
-          <span class="phase__n mono">02</span>
-          <h3>Термический шок</h3>
-          <p>Слой масла и нагара резко охлаждается, становится хрупким и трескается.</p>
-        </li>
-        <li class="phase">
-          <span class="phase__n mono">03</span>
-          <h3>Микроудар</h3>
-          <p>Гранула выбивает загрязнение из пор и стыков, не задевая металл, пластик и краску.</p>
-        </li>
-        <li class="phase">
-          <span class="phase__n mono">04</span>
-          <h3>Сублимация</h3>
-          <p>Лёд сразу переходит в газ и увеличивается в объёме в ~800 раз, отрывая остатки грязи. Ни капли влаги.</p>
-        </li>
-      </ol>
     </div>
   </div>
 
   <div class="wrap">
-    <ul class="perks">
-      <li class="perk">
-        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M26 4 12 27h11l-3 17 16-24H25l1-16Z"/></svg>
-        <h3>100% безопасно для проводки и ЭБУ</h3>
+    <ul class="facts">
+      <li>
+        <h3>Безопасно для проводки и&nbsp;ЭБУ</h3>
         <p>Сухой лёд не проводит ток и не оставляет влаги. Разъёмы, датчики и блок управления остаются сухими.</p>
       </li>
-      <li class="perk">
-        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5c7 9 12 16 12 22a12 12 0 0 1-24 0c0-6 5-13 12-22Z"/><path d="M8 40 40 8"/></svg>
-        <h3>Без разбора узлов и без воды</h3>
-        <p>Ничего не снимаем и не заклеиваем плёнкой. Струя достаёт до узлов, куда не пролезет кисть.</p>
+      <li>
+        <h3>Без разбора и&nbsp;без воды</h3>
+        <p>Ничего не снимаем и не заклеиваем плёнкой. Струя достаёт туда, куда не пролезет кисть.</p>
       </li>
-      <li class="perk">
-        <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="17"/><path d="M15 24h18M24 15v18"/></svg>
+      <li>
         <h3>Снимает многолетний нагар</h3>
-        <p>Масляные подтёки, сажу, дорожную грязь и зимние реагенты, въевшиеся за годы эксплуатации.</p>
+        <p>Масляные подтёки, сажу, дорожную грязь и зимние реагенты, въевшиеся за годы.</p>
       </li>
-      <li class="perk">
-        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M18 5h12M20 5v13L9 39a3 3 0 0 0 3 4h24a3 3 0 0 0 3-4L28 18V5"/><path d="M6 6l36 36"/></svg>
+      <li>
         <h3>Без агрессивной химии</h3>
         <p>Никаких щелочей и растворителей, которые сушат резину и пластик. Только CO₂ и воздух.</p>
       </li>
@@ -161,12 +131,12 @@
       <div class="ba__frame" style="--pos:50%">
         <img class="ba__img" src="assets/img/after.webp" alt="После криочистки: двигатель чистый, металл блестит" loading="lazy" width="1536" height="864">
         <img class="ba__img ba__img--before" src="assets/img/before.webp" alt="До чистки: двигатель покрыт пылью, маслом и нагаром" loading="lazy" width="1536" height="864">
-        <span class="ba__tag ba__tag--l mono">До</span>
-        <span class="ba__tag ba__tag--r mono">После</span>
+        <span class="ba__tag ba__tag--l">До</span>
+        <span class="ba__tag ba__tag--r">После</span>
         <span class="ba__handle" aria-hidden="true"><span></span></span>
         <input class="ba__range" id="baRange" type="range" min="0" max="100" value="50" aria-label="Сравнение до и после: сдвиньте ползунок">
       </div>
-      <figcaption><span class="mono">До / После</span> Потяните ползунок, чтобы сравнить мотор до и после криочистки.</figcaption>
+      <figcaption>Потяните ползунок, чтобы сравнить мотор до и после криочистки.</figcaption>
     </figure>
   </div>
 </section>
@@ -174,15 +144,15 @@
 <!-- 03 ZONES -->
 <section class="zones" id="zones" aria-labelledby="zones-title">
   <div class="wrap sec-head">
-    <p class="sec-num mono">03 / Под капотом</p>
+    <p class="sec-num">Под капотом</p>
     <h2 id="zones-title" class="h2">Каждая зона.<br><span class="dim">Своя задача.</span></h2>
   </div>
   <div class="wrap zones__grid">
     <div class="zones__tabs" role="tablist" aria-label="Зоны подкапотного пространства">
-      <button class="ztab is-on" role="tab" aria-selected="true" aria-controls="zpanel" id="zt-0" data-zone="0"><span class="mono">01</span>Блок цилиндров и клапанная крышка</button>
-      <button class="ztab" role="tab" aria-selected="false" aria-controls="zpanel" id="zt-1" data-zone="1" tabindex="-1"><span class="mono">02</span>Жгуты проводки и датчики</button>
-      <button class="ztab" role="tab" aria-selected="false" aria-controls="zpanel" id="zt-2" data-zone="2" tabindex="-1"><span class="mono">03</span>Турбина, впуск и алюминий</button>
-      <button class="ztab" role="tab" aria-selected="false" aria-controls="zpanel" id="zt-3" data-zone="3" tabindex="-1"><span class="mono">04</span>Пластик, патрубки и шумка капота</button>
+      <button class="ztab is-on" role="tab" aria-selected="true" aria-controls="zpanel" id="zt-0" data-zone="0">Блок цилиндров и клапанная крышка</button>
+      <button class="ztab" role="tab" aria-selected="false" aria-controls="zpanel" id="zt-1" data-zone="1" tabindex="-1">Жгуты проводки и датчики</button>
+      <button class="ztab" role="tab" aria-selected="false" aria-controls="zpanel" id="zt-2" data-zone="2" tabindex="-1">Турбина, впуск и алюминий</button>
+      <button class="ztab" role="tab" aria-selected="false" aria-controls="zpanel" id="zt-3" data-zone="3" tabindex="-1">Пластик, патрубки и шумка капота</button>
     </div>
     <div class="zones__view" id="zpanel" role="tabpanel" aria-labelledby="zt-0">
       <div class="zones__imgs">
@@ -194,8 +164,8 @@
       <div class="zones__info">
         <h3 id="zTitle">Блок цилиндров и клапанная крышка</h3>
         <p id="zText">Снимаем масляный «запотевший» слой вокруг прокладки клапанной крышки и пригоревший нагар с блока. Становятся видны реальные подтёки, если они есть.</p>
-        <ul class="chips" id="zChips"><li>Масло</li><li>Нагар</li><li>Пыль</li></ul>
-        <p class="zones__time mono" id="zTime">≈ 30 мин</p>
+        <p class="zones__tags" id="zChips">Масло · Нагар · Пыль</p>
+        <p class="zones__time" id="zTime">≈ 30 мин</p>
       </div>
     </div>
   </div>
@@ -204,53 +174,44 @@
 <!-- 04 GEAR -->
 <section class="gear" id="gear" aria-labelledby="gear-title">
   <div class="wrap sec-head">
-    <p class="sec-num mono">04 / Оборудование</p>
+    <p class="sec-num">Оборудование</p>
     <h2 id="gear-title" class="h2">Точность <span class="dim">до&nbsp;10&nbsp;мм.</span></h2>
     <p class="sec-lead">Профессиональный аппарат криобластинга, набор сопел под каждую зону и свежий гранулированный лёд, который мы получаем в день чистки.</p>
   </div>
   <div class="wrap gear__cards">
-    <article class="tilt">
-      <div class="tilt__in">
-        <div class="tilt__img tilt__img--photo"><img src="assets/img/gun.webp" alt="Пистолет для криобластинга со стальным соплом, из сопла идёт струя пара CO₂" loading="lazy"></div>
-        <p class="mono tilt__k">Аппарат</p>
-        <h3>Криогенный пистолет</h3>
-        <p>Регулируемая подача льда и воздуха. Мягкий режим для проводки, сильный для блока.</p>
-        <span class="tilt__glare" aria-hidden="true"></span>
-      </div>
+    <article class="gitem">
+      <div class="gitem__img tilt"><img src="assets/img/gun.webp" alt="Пистолет для криобластинга со стальным соплом, из сопла идёт струя пара CO₂" loading="lazy"></div>
+      <p class="gitem__k">Аппарат</p>
+      <h3>Криогенный пистолет</h3>
+      <p>Регулируемая подача льда и воздуха. Мягкий режим для проводки, сильный для блока.</p>
     </article>
-    <article class="tilt">
-      <div class="tilt__in">
-        <div class="tilt__img tilt__img--photo"><img src="assets/img/nozzles.webp" alt="Три сменных стальных сопла: круглое, плоское веерное и угловое" loading="lazy"></div>
-        <p class="mono tilt__k">Сопла</p>
-        <h3>Круглое, веер, угол 45°</h3>
-        <p>Круглое для точечной работы, веерное для плоскостей, угловое для мест за узлами.</p>
-        <span class="tilt__glare" aria-hidden="true"></span>
-      </div>
+    <article class="gitem">
+      <div class="gitem__img tilt"><img src="assets/img/nozzles.webp" alt="Три сменных стальных сопла: круглое, плоское веерное и угловое" loading="lazy"></div>
+      <p class="gitem__k">Сопла</p>
+      <h3>Круглое, веер, угол 45°</h3>
+      <p>Круглое для точечной работы, веерное для плоскостей, угловое для мест за узлами.</p>
     </article>
-    <article class="tilt">
-      <div class="tilt__in">
-        <div class="tilt__img tilt__img--photo"><img src="assets/img/pellets.webp" alt="Гранулы сухого льда диаметром 3 мм, от них стелется пар" loading="lazy"></div>
-        <p class="mono tilt__k">Расходник</p>
-        <h3>Гранулы CO₂ 1,5–3&nbsp;мм</h3>
-        <p>Гранулы 3&nbsp;мм для блока и подвески, микрогранулы 1,5&nbsp;мм для разъёмов и пластика.</p>
-        <span class="tilt__glare" aria-hidden="true"></span>
-      </div>
+    <article class="gitem">
+      <div class="gitem__img tilt"><img src="assets/img/pellets.webp" alt="Гранулы сухого льда диаметром 3 мм, от них стелется пар" loading="lazy"></div>
+      <p class="gitem__k">Расходник</p>
+      <h3>Гранулы CO₂ 1,5–3&nbsp;мм</h3>
+      <p>3&nbsp;мм для блока и навесного, микрогранула 1,5&nbsp;мм для разъёмов и пластика.</p>
     </article>
   </div>
   <dl class="wrap specs">
-    <div><dt>Давление</dt><dd class="mono">1,5–8 <small>бар</small></dd></div>
-    <div><dt>Температура</dt><dd class="mono">−78,5 <small>°C</small></dd></div>
-    <div><dt>Пятно струи</dt><dd class="mono">от 10 <small>мм</small></dd></div>
-    <div><dt>Гранула</dt><dd class="mono">1,5–3 <small>мм</small></dd></div>
-    <div><dt>Износ поверхности</dt><dd class="mono">0 <small>мкм</small></dd></div>
-    <div><dt>Остаток после работы</dt><dd class="mono">0 <small>г</small></dd></div>
+    <div><dt>Давление</dt><dd>1,5–8 <small>бар</small></dd></div>
+    <div><dt>Температура</dt><dd>−78,5 <small>°C</small></dd></div>
+    <div><dt>Пятно струи</dt><dd>от 10 <small>мм</small></dd></div>
+    <div><dt>Гранула</dt><dd>1,5–3 <small>мм</small></dd></div>
+    <div><dt>Износ поверхности</dt><dd>0 <small>мкм</small></dd></div>
+    <div><dt>Остаток после работы</dt><dd>0 <small>г</small></dd></div>
   </dl>
 </section>
 
 <!-- 05 CASES -->
 <section class="cases" id="cases" aria-labelledby="cases-title">
   <div class="wrap sec-head">
-    <p class="sec-num mono">05 / Типы авто</p>
+    <p class="sec-num">Типы авто</p>
     <h2 id="cases-title" class="h2">Под ваш мотор.<br><span class="dim">Любой класс.</span></h2>
   </div>
   <div class="wrap">
@@ -263,7 +224,6 @@
     <article class="cpanel" id="cpanel" role="tabpanel" aria-labelledby="ct-0">
       <div class="cpanel__bg" aria-hidden="true"><img id="cImg" src="assets/img/case_sport.webp" alt="" loading="lazy"></div>
       <div class="cpanel__body">
-        <p class="cpanel__idx mono" id="cIdx">01</p>
         <h3 id="cTitle">Спорткары и мощные V8/V12</h3>
         <p id="cText">Плотная компоновка, карбоновые крышки и много полированного алюминия. Работаем мягким режимом с микрогранулой, чтобы сохранить лак, карбон и анодирование.</p>
         <ul class="cpanel__list" id="cList">
@@ -272,7 +232,7 @@
           <li>Фотоотчёт для сервисной истории</li>
         </ul>
         <dl class="cpanel__stats">
-          <div><dt>Время</dt><dd class="mono" id="cTime">3–4 ч</dd></div>
+          <div><dt>Время</dt><dd id="cTime">3–4 ч</dd></div>
           <div><dt>Результат</dt><dd id="cRes">Шоурум-вид мотора</dd></div>
         </dl>
       </div>
@@ -286,22 +246,22 @@
   <div class="band__shade" aria-hidden="true"></div>
   <div class="wrap band__in">
     <p class="band__q">Струя −78,5&nbsp;°C. <span class="dim">Грязь трескается и&nbsp;отлетает. Металл остаётся.</span></p>
-    <p class="band__meta mono">Мягкий режим для двигателя · микрогранула 1,5&nbsp;мм · 4&nbsp;бар</p>
+    <p class="band__meta">Мягкий режим для двигателя · микрогранула 1,5&nbsp;мм · 4&nbsp;бар</p>
   </div>
 </section>
 
 <!-- 06 PRICES -->
 <section class="prices" id="prices" aria-labelledby="prices-title">
   <div class="wrap sec-head">
-    <p class="sec-num mono">06 / Тарифы</p>
+    <p class="sec-num">Тарифы</p>
     <h2 id="prices-title" class="h2">Два пакета.<br><span class="dim">Без скрытых доплат.</span></h2>
   </div>
   <div class="wrap plans">
     <article class="plan">
-      <p class="plan__k mono">Стандарт</p>
+      <p class="plan__k">Стандарт</p>
       <h3>Криочистка двигателя</h3>
-      <p class="plan__price"><span class="mono">от 6 900</span> ₽</p>
-      <p class="plan__time mono">1,5–2 часа</p>
+      <p class="plan__price">от 6&nbsp;900&nbsp;₽</p>
+      <p class="plan__time">1,5–2 часа</p>
       <ul>
         <li>Осмотр и фото «до»</li>
         <li>Криочистка двигателя и навесного</li>
@@ -309,14 +269,13 @@
         <li>Продувка ниш и водостоков</li>
         <li>Фото «после»</li>
       </ul>
-      <a class="btn btn--ghost btn--block" href="#book" data-plan="Стандарт">Записаться на «Стандарт»</a>
+      <a class="btn btn--ghost btn--block" href="#book" data-plan="Стандарт">Выбрать «Стандарт»</a>
     </article>
     <article class="plan plan--hot">
-      <p class="plan__badge mono">Выбирают чаще</p>
-      <p class="plan__k mono">Премиум</p>
+      <p class="plan__k">Премиум <span class="dim">· выбирают чаще</span></p>
       <h3>Крио-детейлинг</h3>
-      <p class="plan__price"><span class="mono">от 11 900</span> ₽</p>
-      <p class="plan__time mono">3–4 часа</p>
+      <p class="plan__price">от 11&nbsp;900&nbsp;₽</p>
+      <p class="plan__time">3–4 часа</p>
       <ul>
         <li>Всё из пакета «Стандарт»</li>
         <li>Чистка шумоизоляции капота и проёмов</li>
@@ -324,7 +283,7 @@
         <li>Обработка алюминия и хромированных деталей</li>
         <li>Подробный фотоотчёт по зонам</li>
       </ul>
-      <a class="btn btn--ice btn--block" href="#book" data-plan="Премиум">Записаться на «Премиум»</a>
+      <a class="btn btn--ice btn--block" href="#book" data-plan="Премиум">Выбрать «Премиум»</a>
     </article>
   </div>
   <p class="wrap prices__note">Цена для легковых автомобилей. Спорткары, V8/V12 и коммерческий транспорт оцениваем по фото до записи.</p>
@@ -334,7 +293,7 @@
 <section class="faq" id="faq" aria-labelledby="faq-title">
   <div class="wrap faq__grid">
     <div>
-      <p class="sec-num mono">07 / FAQ</p>
+      <p class="sec-num">Вопросы</p>
       <h2 id="faq-title" class="h2 h2--sm">Частые вопросы</h2>
       <div class="qa">
         <details open>
@@ -399,7 +358,7 @@
         <p class="f-legal">Нажимая кнопку, вы соглашаетесь на обработку персональных данных для связи по заявке.</p>
       </form>
       <div class="sent" id="sent" hidden>
-        <p class="sent__k mono">Заявка готова</p>
+        <p class="sent__k">Заявка готова</p>
         <h3>Отправьте её удобным способом</h3>
         <pre class="sent__text" id="sentText"></pre>
         <div class="sent__btns">
@@ -415,16 +374,16 @@
 
   <div class="wrap contacts">
     <div>
-      <p class="mono contacts__k">Студия</p>
+      <p class="contacts__k">Студия</p>
       <p class="contacts__v" data-cfg="address">г. Ульяновск, ул. Примерная, 1</p>
       <a class="contacts__map" id="mapLink" href="https://yandex.ru/maps/?text=%D0%A3%D0%BB%D1%8C%D1%8F%D0%BD%D0%BE%D0%B2%D1%81%D0%BA" target="_blank" rel="noopener">Открыть в Яндекс Картах →</a>
     </div>
     <div>
-      <p class="mono contacts__k">Режим работы</p>
+      <p class="contacts__k">Режим работы</p>
       <p class="contacts__v" data-cfg="hours">Ежедневно 9:00–21:00</p>
     </div>
     <div>
-      <p class="mono contacts__k">Телефон</p>
+      <p class="contacts__k">Телефон</p>
       <p class="contacts__v"><a data-cfg="phone" data-cfg-href="tel" href="tel:+79000000000">+7 (900) 000-00-00</a></p>
     </div>
     <div class="contacts__msg">
