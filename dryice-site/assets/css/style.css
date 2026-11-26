@@ -284,8 +284,9 @@ h3 { font: 700 var(--t-h3)/1.25 var(--f-display); color: var(--white); margin: 0
 .tilt:hover .tilt__in { border-color: rgba(0, 229, 255, .45); box-shadow: 0 40px 80px -30px rgba(0, 0, 0, .9), 0 0 50px -20px var(--ice-glow); transition: transform .12s linear, border-color .4s, box-shadow .4s; }
 .tilt__img { aspect-ratio: 7 / 5; max-width: 100%; margin: -.4rem -.4rem 1.2rem; transform: translateZ(60px); }
 .tilt__img img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 30px 30px rgba(0, 0, 0, .6)); }
-.tilt__img--photo { border-radius: 12px; overflow: hidden; margin: 0 0 1.2rem; }
-.tilt__img--photo img { object-fit: cover; }
+.tilt__img--photo { border-radius: 12px; overflow: hidden; margin: 0 0 1.2rem; aspect-ratio: 4 / 3; }
+.tilt__img--photo img { object-fit: cover; filter: none; transition: transform .8s var(--ease); }
+.tilt:hover .tilt__img--photo img { transform: scale(1.05); }
 .tilt__k { color: var(--ice); font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; margin: 0 0 .4rem; transform: translateZ(30px); }
 .tilt h3 { transform: translateZ(40px); }
 .tilt__in > p:not(.tilt__k) { color: var(--mute); margin: 0; font-size: .95rem; transform: translateZ(20px); }
@@ -320,6 +321,14 @@ h3 { font: 700 var(--t-h3)/1.25 var(--f-display); color: var(--white); margin: 0
 .cpanel__stats dt { font-size: .72rem; color: var(--mute); text-transform: uppercase; letter-spacing: .12em; }
 .cpanel__stats dd { margin: .2rem 0 0; color: var(--white); font-weight: 700; font-size: 1.1rem; }
 .cpanel__stats dd.mono { color: var(--ice); font-size: 1.3rem; }
+
+/* ---------- band ---------- */
+.band { position: relative; min-height: clamp(420px, 72vh, 760px); display: flex; align-items: flex-end; overflow: hidden; isolation: isolate; }
+.band__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transform: scale(1.08) translateY(var(--par, 0px)); will-change: transform; }
+.band__shade { position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, var(--carbon) 0%, rgba(9, 11, 14, .35) 45%, rgba(9, 11, 14, .1) 70%, var(--carbon) 100%), linear-gradient(90deg, rgba(9, 11, 14, .75), rgba(9, 11, 14, 0) 60%); }
+.band__in { padding-block: 3rem clamp(2.5rem, 6vw, 5rem); }
+.band__q { font: 900 clamp(1.8rem, 4.6vw, 4.2rem)/1.02 var(--f-display); text-transform: uppercase; color: var(--white); max-width: 18ch; margin: 0; letter-spacing: -.02em; text-wrap: balance; }
+.band__meta { margin: 1.2rem 0 0; color: var(--ice); font-size: .82rem; letter-spacing: .1em; text-transform: uppercase; }
 
 /* ---------- prices ---------- */
 .prices { background: radial-gradient(70% 60% at 70% 40%, rgba(0, 229, 255, .07), transparent 70%), var(--carbon); }

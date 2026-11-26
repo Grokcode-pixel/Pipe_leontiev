@@ -160,14 +160,14 @@
 
     <figure class="ba" id="ba">
       <div class="ba__frame" style="--pos:50%">
-        <img class="ba__img" src="assets/img/after.webp" alt="После криочистки: двигатель чистый, металл блестит" loading="lazy" width="1920" height="1080">
-        <img class="ba__img ba__img--before" src="assets/img/before.webp" alt="До чистки: двигатель покрыт пылью, маслом и нагаром" loading="lazy" width="1920" height="1080">
+        <img class="ba__img" src="assets/img/after.webp" alt="После криочистки: двигатель чистый, металл блестит" loading="lazy" width="1536" height="864">
+        <img class="ba__img ba__img--before" src="assets/img/before.webp" alt="До чистки: двигатель покрыт пылью, маслом и нагаром" loading="lazy" width="1536" height="864">
         <span class="ba__tag ba__tag--l mono">До</span>
         <span class="ba__tag ba__tag--r mono">После</span>
         <span class="ba__handle" aria-hidden="true"><span></span></span>
         <input class="ba__range" id="baRange" type="range" min="0" max="100" value="50" aria-label="Сравнение до и после: сдвиньте ползунок">
       </div>
-      <figcaption><span class="mono">До / После</span> Один и тот же мотор до и после стандартной криочистки. Потяните ползунок.</figcaption>
+      <figcaption><span class="mono">До / После</span> Потяните ползунок, чтобы сравнить мотор до и после криочистки.</figcaption>
     </figure>
   </div>
 </section>
@@ -212,7 +212,7 @@
   <div class="wrap gear__cards">
     <article class="tilt">
       <div class="tilt__in">
-        <div class="tilt__img"><img src="assets/img/gun.webp" alt="Криогенный пистолет с подсветкой и шлангом подачи" loading="lazy"></div>
+        <div class="tilt__img tilt__img--photo"><img src="assets/img/gun.webp" alt="Пистолет для криобластинга со стальным соплом, из сопла идёт струя пара CO₂" loading="lazy"></div>
         <p class="mono tilt__k">Аппарат</p>
         <h3>Криогенный пистолет</h3>
         <p>Регулируемая подача льда и воздуха. Мягкий режим для проводки, сильный для блока.</p>
@@ -221,7 +221,7 @@
     </article>
     <article class="tilt">
       <div class="tilt__in">
-        <div class="tilt__img"><img src="assets/img/nozzles.webp" alt="Три сменных сопла: круглое, плоское веерное и угловое" loading="lazy"></div>
+        <div class="tilt__img tilt__img--photo"><img src="assets/img/nozzles.webp" alt="Три сменных стальных сопла: круглое, плоское веерное и угловое" loading="lazy"></div>
         <p class="mono tilt__k">Сопла</p>
         <h3>Круглое, веер, угол 45°</h3>
         <p>Круглое для точечной работы, веерное для плоскостей, угловое для мест за узлами.</p>
@@ -230,7 +230,7 @@
     </article>
     <article class="tilt">
       <div class="tilt__in">
-        <div class="tilt__img tilt__img--photo"><img src="assets/img/pellets.webp" alt="Гранулы сухого льда диаметром 3 мм с лёгкой дымкой" loading="lazy"></div>
+        <div class="tilt__img tilt__img--photo"><img src="assets/img/pellets.webp" alt="Гранулы сухого льда диаметром 3 мм, от них стелется пар" loading="lazy"></div>
         <p class="mono tilt__k">Расходник</p>
         <h3>Гранулы CO₂ 1,5–3&nbsp;мм</h3>
         <p>Гранулы 3&nbsp;мм для блока и подвески, микрогранулы 1,5&nbsp;мм для разъёмов и пластика.</p>
@@ -262,7 +262,7 @@
       <button class="ctab" role="tab" aria-selected="false" aria-controls="cpanel" id="ct-3" data-case="3" tabindex="-1">Повседневные и продажа</button>
     </div>
     <article class="cpanel" id="cpanel" role="tabpanel" aria-labelledby="ct-0">
-      <div class="cpanel__bg" aria-hidden="true"><img id="cImg" src="assets/img/hero.webp" alt="" loading="lazy"></div>
+      <div class="cpanel__bg" aria-hidden="true"><img id="cImg" src="assets/img/case_sport.webp" alt="" loading="lazy"></div>
       <div class="cpanel__body">
         <p class="cpanel__idx mono" id="cIdx">01</p>
         <h3 id="cTitle">Спорткары и мощные V8/V12</h3>
@@ -278,6 +278,16 @@
         </dl>
       </div>
     </article>
+  </div>
+</section>
+
+<!-- кадр процесса -->
+<section class="band" aria-label="Процесс криочистки">
+  <img class="band__img" src="assets/img/process.webp" alt="Мастер в перчатке ведёт струю сухого льда по двигателю, вокруг клубится пар" loading="lazy" width="1536" height="864">
+  <div class="band__shade" aria-hidden="true"></div>
+  <div class="wrap band__in">
+    <p class="band__q">Струя −78,5&nbsp;°C. Грязь трескается и&nbsp;отлетает, металл&nbsp;остаётся.</p>
+    <p class="band__meta mono">Мягкий режим для двигателя · микрогранула 1,5&nbsp;мм · 4&nbsp;бар</p>
   </div>
 </section>
 
